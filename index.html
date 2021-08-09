@@ -1,0 +1,360 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <!-- Bootstrap CSS -->
+    <link
+      href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/css/bootstrap.min.css"
+      rel="stylesheet"
+      integrity="sha384-+0n0xVW2eSR5OomGNYDnhzAbDsOXxcvSN1TPprVMTNDbiYZCxYbOOl7+AMvyTG2x"
+      crossorigin="anonymous"
+    />
+    <script src="https://kit.fontawesome.com/b88acd80c8.js" crossorigin="anonymous"></script>
+    <link rel="stylesheet" href="./style/style.css" />
+
+    <title>Check the Weather</title>
+  </head>
+  <body>
+    <div class="container">
+      <div class="row d-flex justify-content-center pt-4">
+        <div class="card" style="width: 60rem">
+          <img
+            id="weatherImg"
+            src="./assests/images/weatherIcons.jpeg"
+            class="card-img-top"
+            alt="Clouds in the sky"
+          />
+          <div class="card-body">
+            <h5 class="card-title d-flex justify-content-center">
+              See the weather in the city of your choice
+            </h5>
+            <div class="input-group mb-3">
+              <input
+                type="text"
+                class="form-control"
+                id="searchPlace"
+                placeholder="City name, Country"
+                aria-label="Recipient's username"
+                aria-describedby="button-addon2"
+              />
+              <button
+                class="btn btn-outline-secondary"
+                type="button"
+                id="searchBtn">
+                Search
+              </button>
+            </div>
+
+            <div class="row pt-3">
+              <div class="col-6 d-flex justify-content-center">
+              <button
+                type="button"
+                class="btn btn-primary"
+                id="addFavorite">
+                Add to Favorites
+              </button>
+              </div>
+            <div class="col-6 d-flex justify-content-center pt-2">
+            <a class="btn btn-success" data-bs-toggle="offcanvas" href="#offcanvasExample" role="button" aria-controls="offcanvasExample">
+              Favorite Cities
+            </a>
+            </div>
+            <div class="row">
+              <div class="col-12 d-flex justify-content-center">
+                <img
+                id="weatherIcon" class="iconBg">
+              </div>
+
+                <div class="col-12 d-flex justify-content-center">
+                </div>
+                <div class="col-6 d-flex justify-content-end">
+                  <p class="card-text">
+                    Date:
+                  </p>
+                </div>
+                <div class="col-6 d-flex justify-content-start">
+                  <p class="card-text" id="dayTxt">
+                    Day
+                  </p>
+                </div>
+              
+              <div class="col-6 d-flex justify-content-end">
+                <p class="card-text">
+                  Location:
+                </p>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <p class="card-text" id="place">
+                  City name, Country
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-end">
+                <p class="card-text">
+                  Weather Type:
+                </p>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <p class="card-text" id="description">
+                  Description
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-end">
+                <p class="card-text">
+                  Temperature:
+                </p>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <p class="card-text" id="temp">
+                  -- °F
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-end">
+                <p class="card-text">
+                  Feels Like:
+                </p>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <p class="card-text" id="feelsLike">
+                  -- °F
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-end">
+                <p class="card-text">
+                  Today's Max Temp:
+                </p>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <p class="card-text" id="max">
+                  -- °F
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-end">
+                <p class="card-text">
+                  Today's Min Temp:
+                </p>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <p class="card-text" id="min">
+                  -- °F
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-end">
+                <p class="card-text">
+                  Wind Speed:
+                </p>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <p class="card-text" id="speed">
+                  -- Mph
+                </p>
+              </div>
+            </div>
+            <div class="row">
+              <div class="col-6 d-flex justify-content-end">
+                <p class="card-text">
+                  Wind Direction:
+                </p>
+              </div>
+              <div class="col-6 d-flex justify-content-start">
+                <p class="card-text" id="degree">
+                  ---°
+                </p>
+              </div>
+            </div>
+
+            
+            <div class="row pt-4">
+              <div class="col-1"></div>
+              <div class="col-2 d-flex justify-content-center">
+                <img p class="iconBg" id="forecastIconOne"></p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <img p class="iconBg" id="forecastIconTwo"></p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <img p class="iconBg" id="forecastIconThree"></p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <img p class="iconBg" id="forecastIconFour"></p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <img p class="iconBg" id="forecastIconFive"></p>
+              </div>
+              <div class="col-1"></div>
+
+              <div class="col-1"></div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDateOne">
+                  Date 1
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDateTwo">
+                  Date 2
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDateThree">
+                  Date 3
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDateFour">
+                  Date 4
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDateFive">
+                  Date 5
+                </p>
+              </div>
+              <div class="col-1"></div>
+
+              <div class="col-1"></div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDayOne">
+                  Day 1
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDayTwo">
+                  Day 2
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDayThree">
+                  Day 3
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDayFour">
+                  Day 4
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDayFive">
+                  Day 5
+                </p>
+              </div>
+              <div class="col-1"></div>
+
+              <div class="col-1"></div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastTempOne">
+                  Temp 1 °F
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastTempTwo">
+                  Temp 2 °F
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastTempThree">
+                  Temp 3 °F
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastTempFour">
+                  Temp 4 °F
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastTempFive">
+                  Temp 5 °F
+                </p>
+              </div>
+              <div class="col-1"></div>
+
+              <div class="col-1"></div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDescriptionOne">
+                  Description 1
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDescriptionTwo">
+                  Description 2
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDescriptionThree">
+                  Description 3
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDescriptionFour">
+                  Description 4
+                </p>
+              </div>
+              <div class="col-2 d-flex justify-content-center">
+                <p class="card-text" id="forecastDescriptionFive">
+                  Description 5
+                </p>
+              </div>
+              <div class="col-1"></div>
+
+            </div> 
+
+
+
+
+
+            <div class="offcanvas offcanvas-start" tabindex="-1" id="offcanvasExample" aria-labelledby="offcanvasExampleLabel">
+              <div class="offcanvas-header">
+                <h5 class="offcanvas-title" id="offcanvasExampleLabel">Your Favorites</h5>
+                <button type="button" class="btn-close text-reset" data-bs-dismiss="offcanvas" aria-label="Close"></button>
+              </div>
+              <div class="offcanvas-body">
+                <div class="row pe-auto" id="injectFav">
+                 <div class="col-2 d-flex justify-content-start pe-auto" id="removeFav">
+
+                 </div>
+                  <!-- <div class="col-12 d-flex justify-content-center pt-2">
+                    <button
+                      type="button"
+                      class="btn btn-danger"
+                      id="removeFavorite">
+                      Remove from Favorites
+                    </button>
+                    </div> -->
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>    
+    <!-- Optional JavaScript; choose one of the two! -->
+
+    <!-- Option 1: Bootstrap Bundle with Popper -->
+    <script
+      src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.bundle.min.js"
+      integrity="sha384-gtEjrD/SeCtmISkJkNUaaKMoLD0//ElJ19smozuHV6z3Iehds+3Ulb9Bn9Plx0x4"
+      crossorigin="anonymous"
+    ></script>
+    <script src="./scripts/script.js"></script>
+
+    <!-- Option 2: Separate Popper and Bootstrap JS -->
+    <!--
+    <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.9.2/dist/umd/popper.min.js" integrity="sha384-IQsoLXl5PILFhosVNubq5LC7Qb9DXgDA9i+tQ8Zj3iwWAwPtgFTxbJ8NT4GN1R8p" crossorigin="anonymous"></script>
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.1/dist/js/bootstrap.min.js" integrity="sha384-Atwg2Pkwv9vp0ygtn1JAojH0nYbwNJLPhwyoVbhoPwBhjQPR5VtM2+xf0Uwh9KtT" crossorigin="anonymous"></script>
+    -->
+  </body>
+</html>

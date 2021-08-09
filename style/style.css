@@ -1,0 +1,14 @@
+body {
+    background-image: url('../assests/images/skyBackground.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+}
+
+.card-body {
+    background-color: lightgray;
+}
+
+/* .iconBg {
+    filter: drop-shadow(0 0 0.75rem black);
+} */
